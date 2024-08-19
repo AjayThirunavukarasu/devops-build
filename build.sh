@@ -1,11 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
 # Build Docker image
 docker-compose build
 
-# Tag the image (replace `your-image-name` with your preferred name)
-docker tag myapp:latest ajayitachi/myapp:latest
+# Tag the image for development
+docker tag myapp:latest ajayitachi/dev:latest
 
-# Push the image to Docker Hub (optional, only if you plan to use Docker Hub)
-docker push ajayitachi/myapp:latest
+# Tag the image for production
+docker tag myapp:latest your-username/prod:latest
+
+# Push the image to the development repo (public)
+docker push ajayitachi/dev:latest
+
+# Push the image to the production repo (private)
+docker push ajayitachi/prod:latest
 
